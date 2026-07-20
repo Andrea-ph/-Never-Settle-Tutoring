@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Never Settle Tutoring | Antrea Filippou</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#111}
+.ns-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:10;flex-wrap:wrap;gap:8px}
+.ns-logo{font-size:18px;font-weight:600;color:#7F77DD;letter-spacing:2px}.ns-logo span{color:#1D9E75}
+.ns-nav-links{display:flex;gap:0.75rem;flex-wrap:wrap}
+.ns-nav-links a{font-size:12px;color:#555;text-decoration:none;cursor:pointer;padding:4px 8px;border-radius:6px}
+.ns-nav-links a:hover,.nav-active{color:#7F77DD !important;background:#EEEDFE !important;font-weight:500}
+.ns-btn{background:#7F77DD;color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;cursor:pointer;font-weight:500}
+.ns-btn:hover{background:#534AB7}
+.ns-btn-green{background:#1D9E75;color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;cursor:pointer;font-weight:500}
+.ns-btn-outline{background:transparent;color:#7F77DD;border:1.5px solid #7F77DD;border-radius:8px;padding:8px 18px;font-size:13px;cursor:pointer;font-weight:500}
+.ns-btn-outline:hover{background:#EEEDFE}
+section{padding:2.5rem 2rem;max-width:920px;margin:0 auto}
+.section-title{font-size:20px;font-weight:600;color:#111;margin-bottom:0.4rem}
+.section-sub{font-size:13px;color:#666;margin-bottom:1.8rem}
+.divider{border:none;border-top:1px solid #eee;margin:0}
+.hero{padding:3rem 2rem 2rem;max-width:920px;margin:0 auto}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.hero-badge{display:inline-block;background:#EEEDFE;color:#534AB7;font-size:12px;padding:4px 14px;border-radius:20px;margin-bottom:1rem}
+.hero h1{font-size:28px;font-weight:600;color:#111;margin-bottom:1rem;line-height:1.4}
+.hero h1 span{color:#7F77DD}
+.hero-quote-block{border-left:3px solid #7F77DD;padding:0.75rem 1rem;background:#EEEDFE;border-radius:0 8px 8px 0;margin-bottom:1.5rem}
+.hero-quote-block p{font-size:13px;color:#534AB7;line-height:1.7;font-style:italic}
+.hero-quote-block span{font-size:12px;color:#7F77DD;font-style:normal;font-weight:600}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.hero-right{display:flex;flex-direction:column;gap:12px}
+.hero-stat-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:1rem 1.25rem;display:flex;align-items:center;gap:12px}
+.hero-stat-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.hero-stat-val{font-size:17px;font-weight:600;color:#111}
+.hero-stat-label{font-size:12px;color:#666}
+.features-banner{background:linear-gradient(135deg,#EEEDFE,#E1F5EE);border-radius:12px;padding:1.5rem;margin-bottom:2rem}
+.features-banner h3{font-size:14px;font-weight:600;color:#534AB7;margin-bottom:1rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.feature-pill{background:#fff;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;border:1px solid #eee}
+.feature-pill-text{font-size:12px;color:#111;font-weight:500}
+.quote-strip{background:#7F77DD;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2rem;text-align:center}
+.quote-strip p{font-size:15px;color:#fff;font-style:italic;line-height:1.6}
+.quote-strip span{font-size:12px;color:#CECBF6;font-style:normal}
+.about-grid{display:grid;grid-template-columns:200px 1fr;gap:2rem;align-items:start}
+.about-avatar{width:120px;height:120px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:600;color:#534AB7;border:3px solid #7F77DD;overflow:hidden}
+.about-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.about-badge{font-size:11px;padding:4px 10px;border-radius:20px;text-align:center;margin-bottom:5px;display:block}
+.badge-p{background:#EEEDFE;color:#534AB7}
+.badge-g{background:#E1F5EE;color:#0F6E56}
+.about-journey{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:1rem}
+.journey-item{background:#f5f5f5;border-radius:8px;padding:10px;text-align:center}
+.journey-val{font-size:13px;font-weight:600;color:#111}
+.journey-label{font-size:11px;color:#666}
+.level-section{margin-bottom:2rem}
+.level-header{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.level-badge{font-size:12px;font-weight:600;color:#534AB7;background:#EEEDFE;padding:5px 14px;border-radius:20px}
+.level-price-tag{font-size:12px;color:#1D9E75;background:#E1F5EE;padding:5px 10px;border-radius:20px}
+.subjects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.subject-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:1rem}
+.subject-card:hover{border-color:#7F77DD}
+.subject-symbol{font-size:22px;font-weight:600;color:#7F77DD;margin-bottom:6px;height:28px;display:flex;align-items:center}
+.subject-card h3{font-size:13px;font-weight:600;color:#111;margin-bottom:3px}
+.subject-card p{font-size:11px;color:#666}
+.pricing-level{margin-bottom:2.5rem}
+.pricing-level-title{font-size:13px;font-weight:600;color:#534AB7;background:#EEEDFE;padding:5px 14px;border-radius:20px;display:inline-block;margin-bottom:1rem}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.price-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:1.25rem;text-align:center}
+.price-card.featured{border:2px solid #7F77DD}
+.price-featured-badge{background:#EEEDFE;color:#534AB7;font-size:11px;padding:2px 10px;border-radius:20px;display:inline-block;margin-bottom:6px}
+.price-card h3{font-size:13px;font-weight:600;color:#111;margin-bottom:6px}
+.price-amount{font-size:24px;font-weight:600;color:#7F77DD;margin-bottom:2px}
+.price-per{font-size:11px;color:#666;margin-bottom:10px}
+.price-features{list-style:none;text-align:left;margin-bottom:1rem}
+.price-features li{font-size:11px;color:#666;padding:2px 0;display:flex;gap:5px}
+.check{color:#1D9E75}
+.free-banner{background:#E1F5EE;border-radius:8px;padding:12px 16px;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.streak-card,.goal-card,.quiz-card,.progress-card,.hw-card,.resource-card,.review-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:1.25rem;margin-bottom:12px}
+.streak-header,.goal-header,.progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.streak-flame{background:#FAEEDA;color:#854F0B;font-size:12px;padding:3px 10px;border-radius:20px}
+.streak-days{display:flex;gap:6px;margin-bottom:8px}
+.streak-day{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600}
+.streak-day.done{background:#7F77DD;color:#fff}
+.streak-day.today{background:#1D9E75;color:#fff}
+.streak-day.miss{background:#f0f0f0;color:#999}
+.goal-pct{font-size:13px;color:#7F77DD;font-weight:600}
+.goal-bar-bg{background:#f0f0f0;border-radius:20px;height:8px;margin-bottom:6px}
+.goal-bar{background:linear-gradient(90deg,#7F77DD,#1D9E75);border-radius:20px;height:8px}
+.quiz-q{font-size:15px;font-weight:600;color:#111;margin-bottom:1.25rem;line-height:1.5}
+.quiz-options{display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem}
+.quiz-opt{background:#f5f5f5;border:1px solid #eee;border-radius:8px;padding:10px 14px;font-size:13px;color:#111;cursor:pointer;text-align:left}
+.quiz-opt:hover{border-color:#7F77DD;background:#EEEDFE;color:#534AB7}
+.quiz-opt.correct{background:#E1F5EE;border-color:#1D9E75;color:#0F6E56}
+.quiz-opt.wrong{background:#FCEBEB;border-color:#E24B4A;color:#A32D2D}
+.quiz-result{font-size:13px;padding:10px 14px;border-radius:8px;margin-bottom:1rem;display:none}
+.resource-card{display:flex;justify-content:space-between;align-items:center}
+.resource-info{display:flex;align-items:center;gap:12px}
+.resource-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.resource-title{font-size:14px;font-weight:600;color:#111}
+.resource-meta{font-size:12px;color:#666}
+.resource-badge{font-size:11px;padding:3px 10px;border-radius:20px}
+.rb-free{background:#E1F5EE;color:#0F6E56}
+.rb-new{background:#EEEDFE;color:#534AB7}
+.rb-locked{background:#f0f0f0;color:#666}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.review-stars{color:#EF9F27;font-size:13px;margin-bottom:6px}
+.review-text{font-size:13px;color:#555;line-height:1.6;margin-bottom:10px;font-style:italic}
+.review-author{font-size:12px;font-weight:600;color:#111}
+.booking-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:2rem;max-width:600px;margin:0 auto}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:13px;color:#666;margin-bottom:4px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:8px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;font-family:inherit;color:#111;background:#fff}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hw-card{display:flex;justify-content:space-between;align-items:center}
+.hw-info h4{font-size:14px;font-weight:600;color:#111;margin-bottom:3px}
+.hw-info p{font-size:12px;color:#666}
+.hw-status{font-size:11px;padding:3px 10px;border-radius:20px}
+.hw-pending{background:#FAEEDA;color:#854F0B}
+.hw-done{background:#E1F5EE;color:#0F6E56}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.contact-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:1rem}
+.contact-dot{width:8px;height:8px;border-radius:50%;background:#7F77DD;margin-top:5px;flex-shrink:0}
+.contact-item p{font-size:13px;color:#666}
+.locked-overlay{background:#f9f9f9;border:2px dashed #ddd;border-radius:12px;padding:2rem;text-align:center;margin-bottom:12px}
+.locked-overlay p{font-size:13px;color:#666;margin-bottom:1rem}
+.private-notice{background:#EEEDFE;border-radius:8px;padding:12px 16px;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.private-notice p{font-size:13px;color:#534AB7;font-weight:500}
+
+.classroom-demo{background:#1a1a2e;border-radius:16px;overflow:hidden;margin-bottom:2rem}
+.classroom-header{background:#16213e;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.classroom-title{color:#fff;font-size:13px;font-weight:600}
+.classroom-status{background:#1D9E75;color:#fff;font-size:11px;padding:3px 10px;border-radius:20px}
+.classroom-body{position:relative;min-height:380px;display:flex}
+.classroom-main{flex:1;background:#1a1a2e;display:flex;align-items:center;justify-content:center;position:relative;padding:1.5rem}
+.classroom-whiteboard{background:#fff;border-radius:12px;width:100%;max-width:520px;min-height:260px;padding:1.5rem;position:relative}
+.classroom-whiteboard h4{font-size:13px;color:#534AB7;font-weight:600;margin-bottom:1rem}
+.wb-content{font-size:14px;color:#111;line-height:2}
+.wb-math{font-size:18px;font-weight:600;color:#7F77DD;margin:0.5rem 0}
+.classroom-tutor{position:absolute;top:12px;right:12px;width:100px;height:80px;background:#2d2d44;border-radius:10px;border:2px solid #7F77DD;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.classroom-tutor img{width:100%;height:100%;object-fit:cover}
+.classroom-sidebar{width:200px;background:#16213e;padding:1rem;display:flex;flex-direction:column;gap:8px}
+.chat-msg{background:#1a1a2e;border-radius:8px;padding:8px 10px}
+.chat-msg-name{font-size:10px;color:#7F77DD;font-weight:600;margin-bottom:2px}
+.chat-msg-text{font-size:11px;color:#ccc;line-height:1.4}
+.chat-msg-me{background:#2d1f5e}
+.chat-msg-me .chat-msg-name{color:#1D9E75}
+.classroom-toolbar{background:#111;padding:12px;display:flex;align-items:center;justify-content:center;gap:16px}
+.tool-btn{background:#2a2a3e;border:none;border-radius:10px;padding:8px 12px;color:#fff;font-size:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:52px}
+.tool-btn:hover{background:#7F77DD}
+.tool-btn-icon{font-size:18px}
+.tool-btn-leave{background:#E24B4A}
+.tool-btn-leave:hover{background:#c0392b}
+.ai-summary{background:#EEEDFE;border-radius:12px;padding:1.25rem;margin-top:1.5rem}
+.ai-summary h4{font-size:13px;font-weight:600;color:#534AB7;margin-bottom:0.75rem;display:flex;align-items:center;gap:6px}
+.ai-summary-item{font-size:12px;color:#555;padding:4px 0;display:flex;gap:6px;line-height:1.5}
+
+@media(max-width:640px){.hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="ns-nav">
+<div class="ns-logo">NEVER <span>SETTLE</span></div>
+<div class="ns-nav-links">
+<a onclick="show('home')" id="nav-home" class="nav-active">Home</a>
+<a onclick="show('about')" id="nav-about">About</a>
+<a onclick="show('subjects')" id="nav-subjects">Subjects</a>
+<a onclick="show('pricing')" id="nav-pricing">Pricing</a>
+<a onclick="show('unique')" id="nav-unique">Features</a>
+<a onclick="show('resources')" id="nav-resources">Resources</a>
+<a onclick="show('reviews')" id="nav-reviews">Reviews</a>
+<a onclick="show('progress')" id="nav-progress">Progress</a>
+<a onclick="show('homework')" id="nav-homework">Homework</a>
+<a onclick="show('contact')" id="nav-contact">Contact</a>
+<a onclick="show('classroom')" id="nav-classroom">Classroom</a>
+</div>
+<button class="ns-btn" onclick="show('booking')">Book free session</button>
+</nav>
+
+<!-- HOME -->
+<div id="page-home">
+<div class="hero">
+<div class="hero-inner">
+<div>
+<div class="hero-badge">MSc Statistics · University of Edinburgh</div>
+<h1>Maths & Statistics tutoring that makes you <span>believe in yourself</span></h1>
+<div class="hero-quote-block">
+<p>"I don't just teach mathematics — I teach you to believe that every goal is achievable. Your goals are my goals. Together we will make the impossible possible."</p>
+<span>— Antrea Filippou</span>
+</div>
+<div class="hero-btns">
+<button class="ns-btn-green" onclick="show('booking')">Free first session</button>
+<button class="ns-btn-outline" onclick="show('subjects')">See subjects</button>
+</div>
+</div>
+<div class="hero-right">
+<div class="hero-stat-card"><div class="hero-stat-icon" style="background:#EEEDFE">🎓</div><div><div class="hero-stat-val">MSc Edinburgh</div><div class="hero-stat-label">Top 20 university worldwide</div></div></div>
+<div class="hero-stat-card"><div class="hero-stat-icon" style="background:#E1F5EE">★</div><div><div class="hero-stat-val">First Class BSc</div><div class="hero-stat-label">Mathematics with Distinction</div></div></div>
+<div class="hero-stat-card"><div class="hero-stat-icon" style="background:#FAEEDA">📚</div><div><div class="hero-stat-val">All ages welcome</div><div class="hero-stat-label">Primary to Undergraduate</div></div></div>
+<div class="hero-stat-card"><div class="hero-stat-icon" style="background:#E1F5EE">✓</div><div><div class="hero-stat-val">Free first session</div><div class="hero-stat-label">No commitment, no risk</div></div></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<section>
+<div class="features-banner">
+<h3>What makes Never Settle different</h3>
+<div class="features-grid">
+<div class="feature-pill"><span>🆓</span><span class="feature-pill-text">Free first session</span></div>
+<div class="feature-pill"><span>📊</span><span class="feature-pill-text">Progress reports for parents</span></div>
+<div class="feature-pill"><span>🔥</span><span class="feature-pill-text">Study streak tracker</span></div>
+<div class="feature-pill"><span>🎯</span><span class="feature-pill-text">Personal goal setting</span></div>
+<div class="feature-pill"><span>📝</span><span class="feature-pill-text">Pre-session quiz</span></div>
+<div class="feature-pill"><span>📖</span><span class="feature-pill-text">Exclusive study resources</span></div>
+</div>
+</div>
+<div class="quote-strip"><p>"The only way to do great work is to love what you do — and to never, ever settle."</p><span>— Never Settle philosophy</span></div>
+</section>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" style="display:none">
+<section>
+<div class="section-title">About me</div>
+<div class="section-sub">The person behind Never Settle</div>
+<div class="about-grid">
+<div>
+<div class="about-avatar">
+<img src="profile.jpg" alt="Antrea Filippou" onerror="this.style.display='none';this.parentElement.innerHTML='AF'">
+</div>
+<div style="margin-top:1rem">
+<span class="about-badge badge-p">MSc Statistics, Edinburgh</span>
+<span class="about-badge badge-p">First Class BSc Maths</span>
+<span class="about-badge badge-g">R · SAS · MATLAB</span>
+<span class="about-badge badge-g">Bayesian · Biostatistics</span>
+</div>
+<div class="about-journey">
+<div class="journey-item"><div style="font-size:20px">🇨🇾</div><div class="journey-val">Cyprus</div><div class="journey-label">Home</div></div>
+<div class="journey-item"><div style="font-size:20px">🎓</div><div class="journey-val">Leicester</div><div class="journey-label">BSc</div></div>
+<div class="journey-item"><div style="font-size:20px">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div><div class="journey-val">Edinburgh</div><div class="journey-label">MSc</div></div>
+<div class="journey-item"><div style="font-size:20px">🌍</div><div class="journey-val">Tanzania</div><div class="journey-label">Volunteer</div></div>
+</div>
+</div>
+<div>
+<p style="font-size:14px;color:#555;line-height:1.8;margin-bottom:1rem">I'm Antrea — a mathematician from Cyprus who packed her bags, moved to the UK alone, and never looked back. I'm currently completing my MSc in Statistics with Data Science at the University of Edinburgh after graduating with a First Class BSc in Mathematics.</p>
+<p style="font-size:14px;color:#555;line-height:1.8;margin-bottom:1rem">Never Settle is built on one belief: with the right support and mindset, every student can achieve more than they think possible. I've lived this myself.</p>
+<div class="quote-strip" style="margin:1rem 0"><p>"Mathematics is not about numbers. It's about understanding. Once you understand, nothing can stop you."</p><span>— Antrea</span></div>
+<p style="font-size:14px;color:#555;line-height:1.8">I've volunteered teaching in Tanzania, tutored hundreds of hours online, and seen students go from failing to thriving. Your goals are my goals.</p>
+</div>
+</div>
+</section>
+</div>
+
+<!-- SUBJECTS -->
+<div id="page-subjects" style="display:none">
+<section>
+<div class="section-title">Subjects I teach</div>
+<div class="section-sub">From primary school all the way to undergraduate level</div>
+<div class="level-section"><div class="level-header"><div class="level-badge">Primary school (ages 5–11)</div><div class="level-price-tag">from £28/hr</div></div>
+<div class="subjects-grid">
+<div class="subject-card"><div class="subject-symbol">123</div><h3>Number & arithmetic</h3><p>Addition, subtraction, times tables</p></div>
+<div class="subject-card"><div class="subject-symbol">▲</div><h3>Shapes & geometry</h3><p>2D & 3D shapes, symmetry</p></div>
+<div class="subject-card"><div class="subject-symbol">½</div><h3>Fractions & decimals</h3><p>Parts of a whole</p></div>
+<div class="subject-card"><div class="subject-symbol">📏</div><h3>Measurement</h3><p>Length, weight, time, money</p></div>
+</div>
+</div>
+<div class="level-section"><div class="level-header"><div class="level-badge">Secondary / IGCSE (ages 11–16)</div><div class="level-price-tag">from £35/hr</div></div>
+<div class="subjects-grid">
+<div class="subject-card"><div class="subject-symbol">x²</div><h3>Algebra</h3><p>Equations, quadratics</p></div>
+<div class="subject-card"><div class="subject-symbol">sin θ</div><h3>Trigonometry</h3><p>Pythagoras, sin/cos/tan</p></div>
+<div class="subject-card"><div class="subject-symbol">∑</div><h3>Statistics</h3><p>Data, graphs, probability</p></div>
+<div class="subject-card"><div class="subject-symbol">∫</div><h3>Intro to calculus</h3><p>Differentiation basics</p></div>
+</div>
+</div>
+<div class="level-section"><div class="level-header"><div class="level-badge">A-Level / Scottish Higher (ages 16–18)</div><div class="level-price-tag">from £45/hr</div></div>
+<div class="subjects-grid">
+<div class="subject-card"><div class="subject-symbol">∫dx</div><h3>Calculus</h3><p>Differentiation & integration</p></div>
+<div class="subject-card"><div class="subject-symbol">Ax=b</div><h3>Linear algebra</h3><p>Matrices, vectors</p></div>
+<div class="subject-card"><div class="subject-symbol">P(A|B)</div><h3>Probability</h3><p>Conditional, distributions</p></div>
+<div class="subject-card"><div class="subject-symbol">∑</div><h3>Statistics</h3><p>Hypothesis testing</p></div>
+</div>
+</div>
+<div class="level-section"><div class="level-header"><div class="level-badge">University undergraduate</div><div class="level-price-tag">from £55/hr</div></div>
+<div class="subjects-grid">
+<div class="subject-card"><div class="subject-symbol">∑</div><h3>Statistics</h3><p>Inference, regression</p></div>
+<div class="subject-card"><div class="subject-symbol">∇f</div><h3>Advanced calculus</h3><p>Multivariable, ODEs</p></div>
+<div class="subject-card"><div class="subject-symbol">R</div><h3>R programming</h3><p>Data analysis & modelling</p></div>
+<div class="subject-card"><div class="subject-symbol">μ</div><h3>Probability theory</h3><p>Random variables</p></div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- PRICING -->
+<div id="page-pricing" style="display:none">
+<section>
+<div class="section-title">Pricing</div>
+<div class="section-sub">Transparent pricing for every level — first session always free</div>
+<div class="free-banner"><span style="font-size:20px">🆓</span><div><p style="font-size:14px;font-weight:600;color:#0F6E56">First session is completely free</p><p style="font-size:12px;color:#1D9E75">No commitment. Try before you decide.</p></div></div>
+<div class="pricing-level"><div class="pricing-level-title">Primary (ages 5–11)</div>
+<div class="pricing-grid">
+<div class="price-card"><h3>Single session</h3><div class="price-amount">£28</div><div class="price-per">per hour</div><ul class="price-features"><li><span class="check">✓</span>1hr online</li><li><span class="check">✓</span>Session notes</li></ul><button class="ns-btn-outline" style="width:100%" onclick="show('booking')">Book</button></div>
+<div class="price-card featured"><div class="price-featured-badge">Save £8/month</div><h3>Monthly</h3><div class="price-amount">£104</div><div class="price-per">4 sessions · £26/hr</div><ul class="price-features"><li><span class="check">✓</span>Progress tracking</li><li><span class="check">✓</span>Homework + WhatsApp</li><li><span class="check">✓</span>Parent report PDF</li></ul><button class="ns-btn" style="width:100%" onclick="show('booking')">Book</button></div>
+<div class="price-card"><h3>Exam prep</h3><div class="price-amount">£30</div><div class="price-per">per hour</div><ul class="price-features"><li><span class="check">✓</span>Past papers</li><li><span class="check">✓</span>Exam technique</li></ul><button class="ns-btn-outline" style="width:100%" onclick="show('booking')">Book</button></div>
+</div></div>
+<div class="pricing-level"><div class="pricing-level-title">Secondary / IGCSE</div>
+<div class="pricing-grid">
+<div class="price-card"><h3>Single session</h3><div class="price-amount">£35</div><div class="price-per">per hour</div><ul class="price-features"><li><span class="check">✓</span>1hr online</li><li><span class="check">✓</span>Session notes</li></ul><button class="ns-btn-outline" style="width:100%" onclick="show('booking')">Book</button></div>
+<div class="price-card featured"><div class="price-featured-badge">Save £20/month</div><h3>Monthly</h3><div class="price-amount">£120</div><div class="price-per">4 sessions · £30/hr</div><ul class="price-features"><li><span class="check">✓</span>Progress tracking</li><li><span class="check">✓</span>Homework + WhatsApp</li><li><span class="check">✓</span>Parent report PDF</li></ul><button class="ns-btn" style="width:100%" onclick="show('booking')">Book</button></div>
+<div class="price-card"><h3>Exam prep</h3><div class="price-amount">£40</div><div class="price-per">per hour</div><ul class="price-features"><li><span class="check">✓</span>Past papers</li><li><span class="check">✓</span>Exam technique</li></ul><button class="ns-btn-outline" style="width:100%" onclick="show('booking')">Book</button></div>
+</div></div>
+<div class="pricing-level"><div class="pricing-level-title">A-Level / Scottish Higher</div>
+<div class="pricing-grid">
+<div class="price-card"><h3>Single session</h3><div class="price-amount">£45</div><div class="price-per">per hour</div><ul class="price-features"><li><span class="check">✓</span>1hr online</li><li><span class="check">✓</span>Session notes</li></ul><button class="ns-btn-outline" style="width:100%" onclick="show('booking')">Book</button></div>
+<div class="price-card featured"><div class="price-featured-badge">Save £20/month</div><h3>Monthly</h3><div class="price-amount">£160</div><div class="price-per">4 sessions · £40/hr</div><ul class="price-features"><li><span class="check">✓</span>Progress tracking</li><li><span class="check">✓</span>Homework + WhatsApp</li><li><span class="check">✓</span>Parent report PDF</li></ul><button class="ns-btn" style="width:100%" onclick="show('booking')">Book</button></div>
+<div class="price-card"><h3>Exam prep</h3><div class="price-amount">£50</div><div class="price-per">per hour</div><ul class="price-features"><li><span class="check">✓</span>Past papers</li><li><span class="check">✓</span>Exam technique</li></ul><button class="ns-btn-outline" style="width:100%" onclick="show('booking')">Book</button></div>
+</div></div>
+<div class="pricing-level"><div class="pricing-level-title">University undergraduate</div>
+<div class="pricing-grid">
+<div class="price-card"><h3>Single session</h3><div class="price-amount">£55</div><div class="price-per">per hour</div><ul class="price-features"><li><span class="check">✓</span>1hr online</li><li><span class="check">✓</span>Session notes</li></ul><button class="ns-btn-outline" style="width:100%" onclick="show('booking')">Book</button></div>
+<div class="price-card featured"><div class="price-featured-badge">Save £20/month</div><h3>Monthly</h3><div class="price-amount">£200</div><div class="price-per">4 sessions · £50/hr</div><ul class="price-features"><li><span class="check">✓</span>Progress tracking</li><li><span class="check">✓</span>Homework + WhatsApp</li><li><span class="check">✓</span>Parent report PDF</li></ul><button class="ns-btn" style="width:100%" onclick="show('booking')">Book</button></div>
+<div class="price-card"><h3>Exam prep</h3><div class="price-amount">£60</div><div class="price-per">per hour</div><ul class="price-features"><li><span class="check">✓</span>Past papers</li><li><span class="check">✓</span>Exam technique</li></ul><button class="ns-btn-outline" style="width:100%" onclick="show('booking')">Book</button></div>
+</div></div>
+</section>
+</div>
+
+<!-- UNIQUE FEATURES -->
+<div id="page-unique" style="display:none">
+<section>
+<div class="section-title">What makes Never Settle unique</div>
+<div class="section-sub">Features you won't find in any other tutoring platform</div>
+<div style="margin-bottom:2rem">
+<div style="font-size:14px;font-weight:600;color:#111;margin-bottom:1rem">🔥 Study streak tracker</div>
+<div class="streak-card">
+<div class="streak-header"><span style="font-size:14px;font-weight:600">Sofia M.</span><span class="streak-flame">🔥 6 day streak</span></div>
+<div class="streak-days">
+<div class="streak-day done">M</div><div class="streak-day done">T</div><div class="streak-day done">W</div><div class="streak-day done">T</div><div class="streak-day done">F</div><div class="streak-day today">S</div><div class="streak-day miss">S</div>
+</div>
+<div style="font-size:12px;color:#666">Keep going — you're on a roll!</div>
+</div>
+</div>
+<div style="margin-bottom:2rem">
+<div style="font-size:14px;font-weight:600;color:#111;margin-bottom:1rem">🎯 Goal setting</div>
+<div class="goal-card">
+<div class="goal-header"><span style="font-size:14px;font-weight:600">Pass IGCSE Maths with grade A</span><span class="goal-pct">72%</span></div>
+<div class="goal-bar-bg"><div class="goal-bar" style="width:72%"></div></div>
+<div style="font-size:12px;color:#666">Target: June 2026 · 4 topics remaining</div>
+</div>
+</div>
+<div style="margin-bottom:2rem">
+<div style="font-size:14px;font-weight:600;color:#111;margin-bottom:1rem">📝 Pre-session quiz</div>
+<div class="quiz-card" style="max-width:580px">
+<div style="font-size:12px;color:#7F77DD;margin-bottom:8px;font-weight:600">IGCSE · Algebra · Question 1 of 3</div>
+<div class="quiz-q">Solve for x: &nbsp; 3x + 7 = 22</div>
+<div class="quiz-options">
+<button class="quiz-opt" onclick="answer(this,false)">x = 4</button>
+<button class="quiz-opt" onclick="answer(this,true)">x = 5</button>
+<button class="quiz-opt" onclick="answer(this,false)">x = 6</button>
+<button class="quiz-opt" onclick="answer(this,false)">x = 3</button>
+</div>
+<div id="quiz-result" class="quiz-result"></div>
+</div>
+</div>
+<div class="quote-strip"><p>"Every expert was once a beginner. Every pro was once an amateur."</p><span>— Robin Sharma</span></div>
+</section>
+</div>
+
+<!-- RESOURCES -->
+<div id="page-resources" style="display:none">
+<section>
+<div class="section-title">Study resources</div>
+<div class="section-sub">Exclusive cheat sheets and study guides — available to subscribed students only</div>
+<div class="private-notice"><span style="font-size:18px">🔒</span><p>These resources are exclusively available to Never Settle students with an active subscription. Book your free first session to get access!</p></div>
+<div class="locked-overlay"><span style="font-size:32px">📄</span><p style="margin-top:0.5rem;font-size:14px;font-weight:600;color:#111">IGCSE Maths formula sheet</p><p>Key formulas · PDF · 2 pages</p><button class="ns-btn" onclick="show('booking')" style="margin-top:1rem">Get access — book free session</button></div>
+<div class="locked-overlay"><span style="font-size:32px">∫</span><p style="margin-top:0.5rem;font-size:14px;font-weight:600;color:#111">A-Level calculus cheat sheet</p><p>Differentiation & integration rules · PDF</p><button class="ns-btn" onclick="show('booking')" style="margin-top:1rem">Get access — book free session</button></div>
+<div class="locked-overlay"><span style="font-size:32px">β</span><p style="margin-top:0.5rem;font-size:14px;font-weight:600;color:#111">Bayesian statistics guide</p><p>Prior, likelihood, posterior explained · PDF</p><button class="ns-btn" onclick="show('booking')" style="margin-top:1rem">Get access — book free session</button></div>
+<div class="locked-overlay"><span style="font-size:32px">R</span><p style="margin-top:0.5rem;font-size:14px;font-weight:600;color:#111">R programming quick reference</p><p>Most useful commands · PDF</p><button class="ns-btn" onclick="show('booking')" style="margin-top:1rem">Get access — book free session</button></div>
+</section>
+</div>
+
+<!-- REVIEWS -->
+<div id="page-reviews" style="display:none">
+<section>
+<div class="section-title">Student reviews</div>
+<div class="section-sub">What students say about Never Settle</div>
+<div class="reviews-grid">
+<div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Antrea explains statistics in a way that finally makes sense. I went from failing to getting a 2:1."</p><div class="review-author">James T. · University student</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"She genuinely cares. Not just a tutor — she motivates you to believe you can do it."</p><div class="review-author">Sofia M. · A-Level student</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Patient, knowledgeable and always prepared. My R programming improved massively."</p><div class="review-author">Liam K. · MSc student</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"My son went from hating maths to looking forward to sessions. She has a gift for teaching."</p><div class="review-author">Parent of IGCSE student</div></div>
+</div>
+<div class="quote-strip" style="margin-top:2rem"><p>"The secret of getting ahead is getting started."</p><span>— Mark Twain</span></div>
+</section>
+</div>
+
+<!-- BOOKING -->
+<div id="page-booking" style="display:none">
+<section>
+<div class="section-title">Book a session</div>
+<div class="section-sub">Your first session is completely free</div>
+<div class="booking-card">
+<div class="free-banner"><span style="font-size:18px">🆓</span><p style="font-size:13px;color:#0F6E56;font-weight:600">First session is free — no commitment needed</p></div>
+<div class="form-row">
+<div class="form-group"><label>First name</label><input type="text" placeholder="Your name"></div>
+<div class="form-group"><label>Last name</label><input type="text" placeholder="Your last name"></div>
+</div>
+<div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+<div class="form-group"><label>Level</label><select><option>Primary school</option><option>Secondary / IGCSE</option><option>A-Level / Scottish Higher</option><option>University undergraduate</option></select></div>
+<div class="form-group"><label>Subject</label><select><option>Mathematics</option><option>Statistics</option><option>Calculus</option><option>R Programming</option><option>Other</option></select></div>
+<div class="form-group"><label>Package</label><select><option>Free first session</option><option>Single session</option><option>Monthly package</option><option>Exam prep</option></select></div>
+<div class="form-group"><label>Tell me about your goals</label><textarea rows="3" placeholder="What are you struggling with? What do you want to achieve?"></textarea></div>
+<button class="ns-btn" style="width:100%">Send booking request</button>
+</div>
+</section>
+</div>
+
+<!-- PROGRESS -->
+<div id="page-progress" style="display:none">
+<section>
+<div class="section-title">Student progress</div>
+<div class="section-sub">Detailed individual tracking — private and accessible only to each student</div>
+<div class="private-notice"><span style="font-size:18px">🔒</span><p>Progress tracking is private — each student can only view their own progress. Book a session to get started!</p></div>
+<div class="progress-card" style="opacity:0.4;pointer-events:none">
+<div class="progress-header"><span style="font-size:14px;font-weight:600">Your progress</span><span style="font-size:12px;color:#666">Statistics · 0 sessions</span></div>
+<div style="font-size:12px;color:#666;margin-bottom:6px">Overall progress</div>
+<div class="goal-bar-bg"><div class="goal-bar" style="width:0%"></div></div>
+<div style="font-size:12px;color:#666">Book your first session to start tracking your progress</div>
+</div>
+<div style="margin-top:1.5rem;text-align:center"><button class="ns-btn" onclick="show('booking')">Book free session to get started</button></div>
+</section>
+</div>
+
+<!-- HOMEWORK -->
+<div id="page-homework" style="display:none">
+<section>
+<div class="section-title">Homework</div>
+<div class="section-sub">Assignments set between sessions — private to each student</div>
+<div class="private-notice"><span style="font-size:18px">🔒</span><p>Homework assignments are private — each student can only view their own assignments. Book a session to get started!</p></div>
+<div class="locked-overlay">
+<span style="font-size:32px">📝</span>
+<p style="margin-top:0.5rem;font-size:14px;font-weight:600;color:#111">Your homework will appear here</p>
+<p>Personalised assignments set after each session to reinforce your learning</p>
+<button class="ns-btn" onclick="show('booking')" style="margin-top:1rem">Book free session</button>
+</div>
+</section>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" style="display:none">
+<section>
+<div class="section-title">Get in touch</div>
+<div class="section-sub">I reply within 24 hours</div>
+<div class="contact-grid">
+<div>
+<div style="font-size:15px;font-weight:600;color:#111;margin-bottom:1rem">Contact details</div>
+<div class="contact-item"><div class="contact-dot"></div><div><p style="font-weight:600;font-size:13px;color:#111">Email</p><p>antreafilippou13@gmail.com</p></div></div>
+<div class="contact-item"><div class="contact-dot"></div><div><p style="font-weight:600;font-size:13px;color:#111">WhatsApp</p><p>+447512052983</p></div></div>
+<div class="contact-item"><div class="contact-dot"></div><div><p style="font-weight:600;font-size:13px;color:#111">Location</p><p>Edinburgh, UK · Online worldwide</p></div></div>
+<div class="quote-strip" style="margin-top:1.5rem"><p>"It always seems impossible until it's done."</p><span>— Nelson Mandela</span></div>
+</div>
+<div>
+<div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
+<div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+<div class="form-group"><label>Message</label><textarea rows="4" placeholder="How can I help you?"></textarea></div>
+<button class="ns-btn" style="width:100%" onclick="sendMessage()">Send message</button>
+</div>
+</div>
+</section>
+</div>
+
+
+<!-- CLASSROOM DEMO -->
+<div id="page-classroom" style="display:none">
+<section>
+<div class="section-title">Online Classroom</div>
+<div class="section-sub">Here's what every Never Settle session looks like — interactive, personal, and effective</div>
+
+<div class="classroom-demo">
+  <div class="classroom-header">
+    <span class="classroom-title">📚 Never Settle · Live Session Demo</span>
+    <span class="classroom-status">● Live</span>
+  </div>
+  <div class="classroom-body">
+    <div class="classroom-main">
+      <div class="classroom-whiteboard">
+        <h4>✏️ Interactive Whiteboard — IGCSE Algebra</h4>
+        <div class="wb-content">
+          <div>Solve for x:</div>
+          <div class="wb-math">3x + 7 = 22</div>
+          <div style="color:#666;font-size:13px">Step 1: Subtract 7 from both sides</div>
+          <div class="wb-math" style="font-size:15px">3x = 15</div>
+          <div style="color:#666;font-size:13px">Step 2: Divide both sides by 3</div>
+          <div class="wb-math" style="color:#1D9E75">x = 5 ✓</div>
+        </div>
+        <div style="position:absolute;bottom:12px;right:12px;font-size:11px;color:#aaa">🖊️ Antrea is writing...</div>
+      </div>
+      <div class="classroom-tutor">
+        <img src="profile.jpg" alt="Antrea" onerror="this.parentElement.innerHTML='👩‍🏫'">
+      </div>
+    </div>
+    <div class="classroom-sidebar">
+      <div style="font-size:11px;color:#7F77DD;font-weight:600;margin-bottom:4px">💬 Chat</div>
+      <div class="chat-msg">
+        <div class="chat-msg-name">Antrea</div>
+        <div class="chat-msg-text">Let's solve this step by step — does that make sense so far? 😊</div>
+      </div>
+      <div class="chat-msg chat-msg-me">
+        <div class="chat-msg-name">You</div>
+        <div class="chat-msg-text">Yes! I understand the subtraction part now</div>
+      </div>
+      <div class="chat-msg">
+        <div class="chat-msg-name">Antrea</div>
+        <div class="chat-msg-text">Great! Now let's try one together 🎯</div>
+      </div>
+      <div style="margin-top:auto;background:#1a1a2e;border-radius:8px;padding:8px;display:flex;gap:6px">
+        <input type="text" placeholder="Type a message..." style="background:transparent;border:none;color:#fff;font-size:11px;flex:1;outline:none">
+        <button style="background:#7F77DD;border:none;border-radius:6px;color:#fff;padding:4px 8px;font-size:11px;cursor:pointer">Send</button>
+      </div>
+    </div>
+  </div>
+  <div class="classroom-toolbar">
+    <button class="tool-btn"><span class="tool-btn-icon">🎙️</span>Mic</button>
+    <button class="tool-btn"><span class="tool-btn-icon">📷</span>Camera</button>
+    <button class="tool-btn"><span class="tool-btn-icon">🖊️</span>Canvas</button>
+    <button class="tool-btn"><span class="tool-btn-icon">🛠️</span>Tools</button>
+    <button class="tool-btn"><span class="tool-btn-icon">🖥️</span>Share</button>
+    <button class="tool-btn"><span class="tool-btn-icon">💬</span>Chat</button>
+    <button class="tool-btn tool-btn-leave"><span class="tool-btn-icon">📴</span>Leave</button>
+  </div>
+</div>
+
+<div class="ai-summary">
+  <h4>✨ AI Lesson Summary <span style="font-size:11px;color:#7F77DD;font-weight:normal">(generated automatically after each session)</span></h4>
+  <div class="ai-summary-item"><span style="color:#1D9E75">✓</span><span><strong>Topics covered:</strong> Linear equations — isolating x, balancing equations</span></div>
+  <div class="ai-summary-item"><span style="color:#1D9E75">✓</span><span><strong>Key concept:</strong> Whatever you do to one side, do to the other</span></div>
+  <div class="ai-summary-item"><span style="color:#1D9E75">✓</span><span><strong>Student progress:</strong> Strong improvement on algebraic manipulation</span></div>
+  <div class="ai-summary-item"><span style="color:#EF9F27">→</span><span><strong>Next session:</strong> Quadratic equations — factorisation method</span></div>
+  <div class="ai-summary-item"><span style="color:#7F77DD">📝</span><span><strong>Homework set:</strong> 5 practice problems on linear equations (due before next session)</span></div>
+</div>
+
+<div style="margin-top:1.5rem;background:#fff;border:1px solid #eee;border-radius:12px;padding:1.25rem">
+  <div style="font-size:14px;font-weight:600;color:#111;margin-bottom:1rem">🛠️ Tools we use in every session</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px">
+    <div style="background:#EEEDFE;border-radius:8px;padding:10px 12px;font-size:12px;color:#534AB7"><strong>📹 Google Meet</strong><br>HD video call</div>
+    <div style="background:#E1F5EE;border-radius:8px;padding:10px 12px;font-size:12px;color:#0F6E56"><strong>🖊️ Digital Whiteboard</strong><br>Write equations live</div>
+    <div style="background:#FAEEDA;border-radius:8px;padding:10px 12px;font-size:12px;color:#854F0B"><strong>📄 PDF Notes</strong><br>Shared after each session</div>
+    <div style="background:#EEEDFE;border-radius:8px;padding:10px 12px;font-size:12px;color:#534AB7"><strong>✨ AI Summary</strong><br>Auto-generated recap</div>
+  </div>
+</div>
+
+<div style="text-align:center;margin-top:2rem">
+  <button class="ns-btn-green" onclick="show('booking')" style="padding:12px 32px;font-size:15px">Try it free — book your first session</button>
+</div>
+
+</section>
+</div>
+
+<script>
+function show(page){
+const pages=['home','about','subjects','pricing','unique','resources','reviews','booking','progress','homework','contact','classroom'];
+pages.forEach(p=>{
+document.getElementById('page-'+p).style.display=p===page?'block':'none';
+const nav=document.getElementById('nav-'+p);
+if(nav) nav.className=p===page?'nav-active':'';
+});
+}
+function answer(btn,correct){
+document.querySelectorAll('.quiz-opt').forEach(o=>o.disabled=true);
+const res=document.getElementById('quiz-result');
+if(correct){btn.className='quiz-opt correct';res.style.cssText='display:block;background:#E1F5EE;color:#0F6E56';res.textContent='Correct! 3x + 7 = 22 → 3x = 15 → x = 5';}
+else{btn.className='quiz-opt wrong';res.style.cssText='display:block;background:#FCEBEB;color:#A32D2D';res.textContent='Not quite. 3x + 7 = 22 → 3x = 15 → x = 5';document.querySelectorAll('.quiz-opt').forEach(o=>{if(o.textContent.trim()==='x = 5')o.className='quiz-opt correct';});}
+}
+function sendMessage(){
+const name=document.querySelector('#page-contact input[placeholder="Your name"]').value;
+const email=document.querySelector('#page-contact input[placeholder="your@email.com"]').value;
+const message=document.querySelector('#page-contact textarea').value;
+if(!name||!email||!message){alert('Please fill in all fields.');return;}
+window.location.href='mailto:antreafilippou13@gmail.com?subject=Never Settle Enquiry from '+name+'&body=Name: '+name+'%0AEmail: '+email+'%0A%0AMessage: '+message;
+}
+</script>
+</body>
+</html>
